@@ -1,0 +1,155 @@
+PRUEBAS DEL PROYECTO - OPCION 2 (PROLOG)
+========================================
+
+Archivo de programa: solucion_opcion2.pl
+Informe y diagramas: solucion_opcion2.pdf
+
+1. INICIAR SWI-PROLOG DESDE POWERSHELL
+--------------------------------------
+Abre PowerShell y ejecuta:
+
+& "C:\Program Files\swipl\bin\swipl.exe" "C:\Users\Brenda\Desktop\proyecto3_LM\salida_opcion2\solucion_opcion2.pl"
+
+El programa queda cargado cuando aparece el prompt de Prolog, por ejemplo:
+1 ?-
+
+Escribe cada consulta en el prompt ?- y presiona Enter. No escribas el texto
+del prompt de PowerShell (PS C:\...) como parte del comando.
+
+2. PRUEBAS DE LAS RELACIONES FAMILIARES
+---------------------------------------
+Cada consulta debe terminar en true. Ejecuta una por una y espera a que vuelva
+el prompt ?- antes de escribir la siguiente.
+
+Género y relación progenitor:
+
+?- hombre(sebastian).
+Esperado: true.
+
+?- mujer(ana).
+Esperado: true.
+
+?- progenitor(roberto, sebastian).
+Esperado: true.
+
+Padre, madre, hijo e hija:
+
+?- padre(roberto, sebastian).
+Esperado: true.
+
+?- madre(marta, sebastian).
+Esperado: true.
+
+?- hijo(sebastian, roberto).
+Esperado: true.
+
+?- hija(ana, roberto).
+Esperado: true.
+
+Abuelo, abuela, hermano y hermana:
+
+?- abuelo(roberto, luis).
+Esperado: true.
+
+?- abuela(marta, luis).
+Esperado: true.
+
+?- hermano(sebastian, diego).
+Esperado: true.
+
+?- hermana(ana, sebastian).
+Esperado: true.
+
+Tío, tía, sobrino y sobrina:
+
+?- tio(diego, luis).
+Esperado: true.
+
+?- tia(ana, luis).
+Esperado: true.
+
+?- sobrino(luis, diego).
+Esperado: true.
+
+?- sobrina(sofia, ana).
+Esperado: true.
+
+3. PRUEBAS DE RESULTADOS DE PARENTESCO
+--------------------------------------
+Estas consultas muestran quién tiene cada relación:
+
+?- abuelo(A, luis).
+Esperado: A = roberto.
+
+?- abuela(A, luis).
+Esperado: A = marta.
+
+?- tio(T, luis).
+Esperado: T = diego.
+
+?- tia(T, luis).
+Esperado: T = ana.
+
+?- sobrino(S, diego).
+Esperado: S = luis.
+
+?- sobrina(S, ana).
+Esperado: S = sofia.
+
+4. PRUEBAS DEL GRAFO Y CAMINO/3
+-------------------------------
+Los siguientes arcos deben existir:
+
+?- arco(a, b).
+Esperado: true.
+
+?- arco(a, c).
+Esperado: true.
+
+?- arco(a, d).
+Esperado: true.
+
+?- arco(c, d).
+Esperado: true.
+
+Verifica cada camino esperado:
+
+?- camino(a, d, [a, d]).
+Esperado: true.
+
+?- camino(c, d, [c, d]).
+Esperado: true.
+
+?- camino(a, d, [a, c, d]).
+Esperado: true.
+
+Consulta solicitada en la tarea:
+
+?- camino(X, d, Y).
+
+Respuestas esperadas, en este orden:
+X = a, Y = [a, d]
+X = c, Y = [c, d]
+X = a, Y = [a, c, d]
+Luego: false.
+
+En esta última consulta, presiona punto y coma (;) para pedir la siguiente
+respuesta. Tras la tercera, Prolog muestra false y vuelve al prompt ?-. No
+escribas la siguiente consulta hasta que vuelva a aparecer ?-.
+
+5. SI APARECE UNA CORRECCION O EL DEPURADOR
+-------------------------------------------
+Si SWI-Prolog pregunta "Correct to ...?", responde n si no estás seguro y
+vuelve a escribir la consulta correctamente, con punto final.
+
+Si aparece "Action?" o un prompt [debug], escribe a para abortar la traza.
+En el prompt normal de Prolog, halt. cierra SWI-Prolog.
+
+6. REVISION DE ARCHIVOS PARA LA ENTREGA
+--------------------------------------
+[ ] solucion_opcion2.pl contiene el programa y todas las relaciones pedidas.
+[ ] solucion_opcion2.pdf contiene la explicación, el árbol familiar, el grafo
+    y el árbol de búsqueda de camino(X,d,Y).
+[ ] Subir el programa y el PDF a la tarea de Canvas.
+[ ] Presentar el proyecto en clase, en la fecha indicada.
+[ ] No subir enlaces a repositorios.
